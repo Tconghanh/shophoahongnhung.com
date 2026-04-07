@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Hoa Hồng Nhung - Hoa Tươi & Giỏ Trái Cây</title>
-    <link rel="icon" type="image/x-icon" href="Data/favicon.ico">
+    <title>Shop Hoa Hồng Nhung - Tươi Thắm Mỗi Ngày | shophoahongnhung.com</title>
+    <link rel="icon" type="image/x-icon" href="data/favicon.ico">
     
     <!-- Fonts & CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -20,18 +20,18 @@
             --border-soft: #f1f2f6;
         }
         
-        body { font-family: 'Inter', sans-serif; background-color: #fff; color: var(--text-dark); overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background-color: #fff; color: var(--text-dark); overflow-x: hidden; scroll-behavior: smooth; }
         h1, h2, h3, h4, .nav-link, .btn-floral { font-family: 'Playfair Display', serif; }
 
-        /* Sidebar Giao diện Shop Hoa */
+        /* Sidebar Menu */
         #sidebar {
             width: 280px; height: 100vh; position: fixed; left: 0; top: 0;
             background: #fff; border-right: 1px solid var(--border-soft); z-index: 1000; transition: 0.3s;
         }
-        #sidebar .logo-area { padding: 40px 20px; text-align: center; }
+        #sidebar .logo-area { padding: 30px 20px; text-align: center; }
         #sidebar .logo-area img { max-width: 100%; height: auto; border-radius: 12px; }
         #sidebar .nav-link { 
-            color: #444; padding: 15px 25px; font-weight: 600; border-bottom: 1px solid #fafafa; transition: 0.3s;
+            color: #444; padding: 12px 25px; font-weight: 600; border-bottom: 1px solid #fafafa; cursor: pointer; transition: 0.3s;
         }
         #sidebar .nav-link:hover, #sidebar .nav-link.active { 
             background: var(--secondary-floral); color: var(--primary-floral); padding-left: 35px;
@@ -39,17 +39,14 @@
         
         #main-content { margin-left: 280px; width: calc(100% - 280px); }
 
-        /* Slider */
+        /* Hero Slider */
         .swiper-hero { width: 100%; height: 500px; }
         .swiper-hero img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* Dự án/Mẫu hoa chạy ngang */
-        .project-item { 
-            background: #fff; border: 1px solid var(--border-soft); 
-            border-radius: 15px; overflow: hidden; height: 100%;
-        }
+        /* Dự án thực tế */
+        .project-item { background: #fff; border: 1px solid var(--border-soft); border-radius: 15px; overflow: hidden; height: 100%; }
         .project-item img { height: 250px; width: 100%; object-fit: cover; }
-        .project-item p { padding: 15px; font-size: 0.9rem; font-weight: 600; margin: 0; text-align: center; }
+        .project-item p { padding: 15px; font-size: 1rem; font-weight: 700; margin: 0; text-align: center; color: var(--primary-floral); }
 
         /* Sản phẩm */
         .product-card { 
@@ -60,11 +57,11 @@
         .product-img { width: 100%; height: 240px; object-fit: cover; border-radius: 12px; margin-bottom: 15px; }
         .price { color: var(--primary-floral); font-weight: 700; font-size: 1.15rem; }
         
-        /* Specs */
+        /* Specs Item */
         .spec-item { display: flex; align-items: start; margin-bottom: 8px; font-size: 0.9rem; text-align: left; }
         .spec-item i { color: var(--primary-floral); margin-top: 5px; margin-right: 10px; font-size: 0.8rem; }
 
-        /* Mobile */
+        /* Mobile Header */
         @media (max-width: 992px) {
             #sidebar { left: -280px; }
             #sidebar.active { left: 0; box-shadow: 15px 0 40px rgba(0,0,0,0.1); }
@@ -86,37 +83,38 @@
 
 <!-- Mobile Header -->
 <div class="d-lg-none bg-white p-3 shadow-sm d-flex justify-content-between align-items-center sticky-top">
-    <img src="Data/logo.gif" height="35">
+    <img src="data/logo.gif" height="35">
     <button class="btn btn-outline-danger btn-sm" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
 </div>
 
 <!-- Sidebar Menu -->
 <nav id="sidebar">
     <div class="logo-area">
-        <img src="Data/logo.gif" alt="Shop Hoa Hồng Nhung">
+        <img src="data/logo.gif" alt="Shop Hoa Hồng Nhung">
         <div class="mt-3">
             <h5 class="fw-bold mb-0" style="color: var(--primary-floral);">HỒNG NHUNG</h5>
-            <small class="text-muted text-uppercase" style="letter-spacing: 2px;">Shop hoa tươi</small>
+            <small class="text-muted text-uppercase">Floral Shop</small>
         </div>
     </div>
     <ul class="nav flex-column mt-2">
-        <li class="nav-item"><a href="#home" class="nav-link active"><i class="fas fa-home me-2"></i> TRANG CHỦ</a></li>
-        <li class="nav-item"><a href="#products" class="nav-link"><i class="fas fa-seedling me-2"></i> HOA TƯƠI</a></li>
-        <li class="nav-item"><a href="#products" class="nav-link"><i class="fas fa-shopping-basket me-2"></i> GIỎ TRÁI CÂY</a></li>
-        <li class="nav-item"><a href="#projects" class="nav-link"><i class="fas fa-star me-2"></i> HOA SỰ KIỆN</a></li>
-        <li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-phone-alt me-2"></i> LIÊN HỆ</a></li>
+        <li class="nav-item"><a href="#home" class="nav-link active"><i class="fas fa-home me-2"></i> Trang chủ</a></li>
+        <li class="nav-item"><a onclick="menuFilter('Hoa cưới')" class="nav-link"><i class="fas fa-ring me-2"></i> Hoa cưới</a></li>
+        <li class="nav-item"><a onclick="menuFilter('Hoa Khai Trương')" class="nav-link"><i class="fas fa-bullhorn me-2"></i> Hoa Khai Trương</a></li>
+        <li class="nav-item"><a onclick="menuFilter('Giỏ trái cây')" class="nav-link"><i class="fas fa-shopping-basket me-2"></i> Giỏ trái cây</a></li>
+        <li class="nav-item"><a onclick="menuFilter('Hoa chia buồn')" class="nav-link"><i class="fas fa-leaf me-2"></i> Hoa chia buồn</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link"><i class="fas fa-phone-alt me-2"></i> Liên hệ</a></li>
     </ul>
 </nav>
 
 <main id="main-content">
-    <!-- Slider -->
+    <!-- Hero Slider -->
     <section id="home" class="swiper swiper-hero">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="Data/SL1.jpg" alt="Hoa đẹp Tuy Phước"></div>
-            <div class="swiper-slide"><img src="Data/SL2.jpg" alt="Giỏ hoa khai trương"></div>
-            <div class="swiper-slide"><img src="Data/SL3.jpg" alt="Hoa sinh nhật"></div>
-            <div class="swiper-slide"><img src="Data/SL4.jpg" alt="Giỏ trái cây cao cấp"></div>
-            <div class="swiper-slide"><img src="Data/SL5.jpg" alt="Hoa sự kiện"></div>
+            <div class="swiper-slide"><img src="data/SL1.jpg" alt="Hoa đẹp"></div>
+            <div class="swiper-slide"><img src="data/SL2.jpg" alt="Hoa Khai Trương"></div>
+            <div class="swiper-slide"><img src="data/SL3.jpg" alt="Hoa Cưới"></div>
+            <div class="swiper-slide"><img src="data/SL4.jpg" alt="Giỏ Trái Cây"></div>
+            <div class="swiper-slide"><img src="data/SL5.jpg" alt="Hoa Sự Kiện"></div>
         </div>
         <div class="swiper-pagination"></div>
     </section>
@@ -125,31 +123,32 @@
     <section id="intro" class="py-5 container">
         <div class="row align-items-center">
             <div class="col-lg-5 text-center mb-4">
-                <img src="Data/logo.gif" class="img-fluid rounded shadow-sm" style="max-width: 280px;">
+                <img src="data/logo.gif" class="img-fluid rounded shadow-sm" style="max-width: 250px;">
             </div>
             <div class="col-lg-7">
                 <h2 class="fw-bold mb-3" style="color: var(--primary-floral);">SHOP HOA HỒNG NHUNG</h2>
-                <div class="p-4 bg-white border rounded shadow-sm">
+                <div class="p-4 bg-white border-start border-danger border-4 rounded shadow-sm">
                     <p class="mb-2"><i class="fas fa-map-marker-alt text-danger me-2"></i> <strong>Địa chỉ:</strong> Kiot 11 chợ Diêu Trì, Đường Nguyễn Đình Thụ, Xã Tuy Phước, Tỉnh Gia Lai</p>
-                    <p class="mb-2"><i class="fas fa-phone-alt text-danger me-2"></i> <strong>SĐT:</strong> 0905274529 (chị Thu) - 0906454388 (anh Dũng)</p>
-                    <p class="mb-2"><i class="fas fa-envelope text-danger me-2"></i> <strong>Email:</strong> nguyenthithuqn1965@gmail.com</p>
+                    <p class="mb-2"><i class="fas fa-phone-alt text-danger me-2"></i> <strong>SĐT:</strong> 0905.274.529 (chị Thu) - 0906.454.388 (anh Dũng)</p>
                     <p class="mb-0"><i class="fas fa-globe text-danger me-2"></i> <strong>Website:</strong> www.shophoahongnhung.com</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mẫu hoa thực tế -->
+    <!-- Dự án đã thi công -->
     <section id="projects" class="py-5 bg-light border-top border-bottom">
-        <div class="container mb-4"><h3 class="fw-bold text-center">MẪU HOA CHÚNG TÔI ĐÃ THỰC HIỆN</h3></div>
+        <div class="container mb-4 text-center">
+            <h3 class="fw-bold">MẪU HOA THỰC TẾ</h3>
+            <p class="text-muted">Các dự án shop đã thực hiện cho khách hàng</p>
+        </div>
         <div class="swiper swiper-projects">
-            <div class="swiper-wrapper" id="project-slides">
-                <!-- Chạy từ DA01 đến DA05 mặc định -->
-                <div class="swiper-slide px-2"><div class="project-item"><img src="Data/DA01.jpg"><p>Hoa Ngày Cưới</p></div></div>
-                <div class="swiper-slide px-2"><div class="project-item"><img src="Data/DA02.jpg"><p>Hoa Đại Hội</p></div></div>
-                <div class="swiper-slide px-2"><div class="project-item"><img src="Data/DA03.jpg"><p>Hoa khai trương</p></div></div>
-                <div class="swiper-slide px-2"><div class="project-item"><img src="Data/DA04.jpg"><p>Hoa Khia giảng</p></div></div>
-                <div class="swiper-slide px-2"><div class="project-item"><img src="Data/DA05.jpg"><p>Hoa Chúc Mừng</p></div></div>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide px-2"><div class="project-item"><img src="data/DA01.jpg"><p>Hoa Ngày Cưới</p></div></div>
+                <div class="swiper-slide px-2"><div class="project-item"><img src="data/DA02.jpg"><p>Hoa Đại Hội</p></div></div>
+                <div class="swiper-slide px-2"><div class="project-item"><img src="data/DA03.jpg"><p>Hoa khai trương</p></div></div>
+                <div class="swiper-slide px-2"><div class="project-item"><img src="data/DA04.jpg"><p>Hoa Khai giảng</p></div></div>
+                <div class="swiper-slide px-2"><div class="project-item"><img src="data/DA05.jpg"><p>Hoa Chúc Mừng</p></div></div>
             </div>
         </div>
     </section>
@@ -159,62 +158,59 @@
         <div class="text-center mb-5">
             <h2 class="fw-bold display-6">SẢN PHẨM CỦA SHOP</h2>
             <div class="d-flex justify-content-center flex-wrap gap-2 mt-4" id="cat-nav">
-                <!-- Nút bấm danh mục sẽ tự động sinh ra ở đây -->
-                <button class="btn btn-floral" onclick="filterBy('bán chạy', this)">Mẫu bán chạy</button>
+                <button class="btn btn-floral" id="btn-default" onclick="filterBy('bán chạy', this)">Mẫu bán chạy</button>
+                <button class="btn btn-outline-danger" onclick="filterBy('all', this)">Tất cả mẫu</button>
             </div>
         </div>
 
         <div class="row g-4" id="product-list">
             <div class="col-12 text-center py-5"><div class="spinner-border text-danger"></div></div>
         </div>
-        <div id="pagination" class="d-flex justify-content-center mt-5"></div>
     </section>
 
     <!-- Footer -->
     <footer id="contact" class="bg-white border-top py-5">
-        <div class="container text-center text-md-start">
+        <div class="container">
             <div class="row g-4">
+                <!-- Cột 1: Logo & Thông tin Shop -->
+                <div class="col-md-5">
+                    <img src="data/logo.gif" height="60" class="mb-3">
+                    <h5 class="fw-bold" style="color: var(--primary-floral);">SHOP HOA HỒNG NHUNG</h5>
+                    <p class="small text-muted mb-1"><i class="fas fa-map-marker-alt me-2"></i> Địa chỉ: Kiot 11 chợ Diêu Trì, Đường Nguyễn Đình Thụ, Xã Tuy Phước, Tỉnh Gia Lai</p>
+                    <p class="small text-muted mb-0"><i class="fas fa-globe me-2"></i> Website: www.shophoahongnhung.com</p>
+                </div>
+                <!-- Cột 2: Thanh toán -->
                 <div class="col-md-4">
-                    <img src="Data/logo.gif" height="50" class="mb-3">
-                    <h6 class="fw-bold text-uppercase">Thông tin thanh toán</h6>
-                    <div class="small p-3 bg-light rounded border-start border-danger border-3">
-                        VietinBank - Phú Tài<br>
-                        STK: <strong>108886635288</strong><br>
-                        Chủ TK: <strong>Hộ Kinh Doanh Nguyễn Thị Thu</strong>
+                    <h6 class="fw-bold mb-3 text-uppercase">Thanh toán (VietinBank)</h6>
+                    <div class="small p-3 bg-light rounded border">
+                        STK: <strong>090527452</strong><br>
+                        Chủ TK: <strong>Nguyễn Thị Thu</strong><br>
+                        Chi nhánh: <strong>Phú Tài</strong>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <h6 class="fw-bold mb-3">LIÊN HỆ ĐẶT HOA</h6>
-                    <p class="small text-muted">
-                        Hotline 1: 0905.274.529 (Zalo)<br>
-                        Hotline 2: 0906.454.388 (Zalo)<br>
-                        Giao hoa tận nơi - Đúng mẫu - Đúng hẹn.
-                    </p>
-                </div>
-                <div class="col-md-4 text-md-end">
-                    <h6 class="fw-bold mb-3">KẾT NỐI VỚI CHÚNG TÔI</h6>
-                    <div class="d-flex justify-content-md-end gap-2">
-                        <a href="https://zalo.me/0905274529" class="btn btn-sm btn-outline-primary px-3 rounded-pill">Zalo chị Thu</a>
-                        <a href="#" class="btn btn-sm btn-outline-danger px-3 rounded-pill">Facebook Shop</a>
-                    </div>
+                <!-- Cột 3: Zalo & Kết nối -->
+                <div class="col-md-3 text-md-end">
+                    <h6 class="fw-bold mb-3">KẾT NỐI</h6>
+                    <a href="https://zalo.me/0905274529" class="btn btn-sm btn-outline-primary w-100 mb-2 rounded-pill"><i class="fas fa-comment me-2"></i>Zalo chị Thu</a>
+                    <a href="https://www.facebook.com/shophoahongnhung" class="btn btn-sm btn-outline-danger w-100 rounded-pill"><i class="fab fa-facebook-f me-2"></i>Facebook Shop</a>
                 </div>
             </div>
+            <hr class="mt-5">
+            <p class="text-center small text-muted">© 2024 Shop Hoa Hồng Nhung. Thiết kế chuyên nghiệp.</p>
         </div>
     </footer>
 </main>
 
-<!-- Cart -->
+<!-- Cart Floating -->
 <div class="cart-float" onclick="openCart()">
-    <i class="fas fa-shopping-cart fa-lg"></i>
+    <i class="fas fa-shopping-basket fa-lg"></i>
     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-badge">0</span>
 </div>
 
 <!-- Modal Detail -->
 <div class="modal fade" id="detailModal" tabindex="-1">
     <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
-            <div class="modal-body p-0" id="detail-body"></div>
-        </div>
+        <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;" id="detail-body"></div>
     </div>
 </div>
 
@@ -236,79 +232,52 @@
 
     function toggleSidebar() { document.getElementById('sidebar').classList.toggle('active'); }
 
-    // Tải dữ liệu và xử lý danh mục đa tầng
+    // Tải dữ liệu từ Google Sheet
     async function loadData() {
         Papa.parse(SHEET_URL, {
             download: true, header: true, skipEmptyLines: true,
             complete: (res) => {
                 allProducts = res.data.filter(p => p.ID);
-                buildDynamicFilters();
                 renderProducts();
             }
         });
     }
 
-    // Tính năng mới: Xử lý cột Cat có dấu ";"
-    function buildDynamicFilters() {
-        let categorySet = new Set();
-        allProducts.forEach(p => {
-            if (p.Cat) {
-                // Tách các danh mục bằng dấu ;
-                const cats = p.Cat.split(';');
-                cats.forEach(c => {
-                    const trimmed = c.trim();
-                    if (trimmed && trimmed.toLowerCase() !== 'bán chạy') {
-                        categorySet.add(trimmed);
-                    }
-                });
-            }
-        });
-
-        const container = document.getElementById('cat-nav');
-        // Nút Tất cả
-        const btnAll = document.createElement('button');
-        btnAll.className = 'btn btn-outline-danger px-4';
-        btnAll.innerText = 'Tất cả mẫu';
-        btnAll.onclick = function() { filterBy('all', this); };
-        container.appendChild(btnAll);
-
-        // Các nút danh mục từ Sheet
-        categorySet.forEach(catName => {
-            const btn = document.createElement('button');
-            btn.className = 'btn btn-outline-danger px-4';
-            btn.innerText = catName;
-            btn.onclick = function() { filterBy(catName, this); };
-            container.appendChild(btn);
-        });
+    // Tính năng Menu Filter đặc biệt
+    function menuFilter(catName) {
+        document.getElementById('products').scrollIntoView();
+        // Tìm nút trong cat-nav có text tương ứng để kích hoạt hiệu ứng active
+        const btns = document.querySelectorAll('#cat-nav .btn');
+        let targetBtn = null;
+        btns.forEach(b => { if(b.innerText.toLowerCase() === catName.toLowerCase()) targetBtn = b; });
+        
+        // Nếu không có nút cho danh mục này, tạo một nút tạm hoặc đơn giản là lọc
+        filterBy(catName, targetBtn);
+        if(window.innerWidth < 992) toggleSidebar();
     }
 
-    // Logic lọc sản phẩm đa danh mục
     function filterBy(catName, btn) {
         currentCat = catName;
-        document.querySelectorAll('#cat-nav .btn').forEach(b => {
-            b.classList.remove('btn-floral', 'active');
-            b.classList.add('btn-outline-danger');
-        });
-        btn.classList.add('btn-floral', 'active');
-        btn.classList.remove('btn-outline-danger');
+        if(btn) {
+            document.querySelectorAll('#cat-nav .btn').forEach(b => {
+                b.classList.remove('btn-floral', 'active');
+                b.classList.add('btn-outline-danger');
+            });
+            btn.classList.add('btn-floral', 'active');
+            btn.classList.remove('btn-outline-danger');
+        }
         renderProducts();
     }
 
     function renderProducts() {
         const list = document.getElementById('product-list');
         list.innerHTML = '';
-        
-        // Lọc sản phẩm: kiểm tra xem catName có nằm trong mảng các danh mục của sản phẩm không
         const filtered = currentCat === 'all' 
             ? allProducts 
-            : allProducts.filter(p => {
-                if (!p.Cat) return false;
-                const pCategories = p.Cat.split(';').map(c => c.trim().toLowerCase());
-                return pCategories.includes(currentCat.toLowerCase());
-            });
+            : allProducts.filter(p => p.Cat && p.Cat.toLowerCase().includes(currentCat.toLowerCase()));
 
         if (filtered.length === 0) {
-            list.innerHTML = '<div class="col-12 text-center py-5">Hiện chưa có mẫu hoa trong danh mục này.</div>';
+            list.innerHTML = '<div class="col-12 text-center py-5 text-muted">Hiện chưa có mẫu hoa trong danh mục này.</div>';
             return;
         }
 
@@ -316,17 +285,17 @@
             list.innerHTML += `
                 <div class="col-lg-3 col-md-4 col-6">
                     <div class="product-card" onclick="showDetail('${p.ID}')">
-                        <img src="Data/${p.ID}.jpg" class="product-img" onerror="this.src='https://via.placeholder.com/300x400?text=Shop+Hoa+Hồng+Nhung'">
+                        <img src="data/${p.ID}.jpg" class="product-img" onerror="this.src='https://via.placeholder.com/300x400?text=Hoa+Hồng+Nhung'">
                         <h6 class="fw-bold mb-1 text-truncate">${p.Name}</h6>
                         <p class="price mb-2">${p.Price} đ</p>
-                        <button class="btn btn-sm btn-outline-danger rounded-pill w-100" onclick="event.stopPropagation(); addToCart('${p.ID}')">Đặt hàng</button>
+                        <button class="btn btn-sm btn-outline-danger rounded-pill w-100" onclick="event.stopPropagation(); addToCart('${p.ID}')">Đặt mẫu này</button>
                     </div>
                 </div>`;
         });
     }
 
     function formatSpecs(specs) {
-        if (!specs) return '<div class="spec-item"><i class="fas fa-heart"></i> Hoa tươi mới nhập trong ngày</div>';
+        if (!specs) return '<div class="spec-item"><i class="fas fa-heart"></i> Hoa tươi thiết kế mới nhất</div>';
         return specs.split(';').map(item => item.trim() ? `<div class="spec-item"><i class="fas fa-check-circle"></i><span>${item.trim()}</span></div>` : '').join('');
     }
 
@@ -334,22 +303,22 @@
         const p = allProducts.find(x => x.ID === id);
         const modalBody = document.getElementById('detail-body');
         modalBody.innerHTML = `
-            <div class="row g-0">
+            <div class="row g-0 bg-white">
                 <div class="col-md-6 bg-light text-center p-3 d-flex flex-column justify-content-center">
-                    <img src="Data/${p.ID}.jpg" id="main-img" class="img-fluid rounded shadow-sm" style="max-height: 400px; object-fit: cover;">
+                    <img src="data/${p.ID}.jpg" id="main-img" class="img-fluid rounded shadow-sm" style="max-height: 400px; object-fit: cover;">
                     <div class="d-flex justify-content-center gap-2 mt-3">
-                        <img src="Data/${p.ID}.jpg" class="thumb-img active" style="width:50px; height:50px; object-fit:cover; border:2px solid var(--primary-floral); border-radius:8px; cursor:pointer;" onclick="document.getElementById('main-img').src=this.src">
-                        <img src="Data/${p.ID}.1.jpg" style="width:50px; height:50px; object-fit:cover; border:1px solid #ddd; border-radius:8px; cursor:pointer;" onerror="this.remove()" onclick="document.getElementById('main-img').src=this.src">
-                        <img src="Data/${p.ID}.2.jpg" style="width:50px; height:50px; object-fit:cover; border:1px solid #ddd; border-radius:8px; cursor:pointer;" onerror="this.remove()" onclick="document.getElementById('main-img').src=this.src">
+                        <img src="data/${p.ID}.jpg" class="rounded border" style="width:50px; height:50px; object-fit:cover; cursor:pointer;" onclick="document.getElementById('main-img').src=this.src">
+                        <img src="data/${p.ID}.1.jpg" style="width:50px; height:50px; object-fit:cover;" class="rounded border" onerror="this.remove()" onclick="document.getElementById('main-img').src=this.src">
+                        <img src="data/${p.ID}.2.jpg" style="width:50px; height:50px; object-fit:cover;" class="rounded border" onerror="this.remove()" onclick="document.getElementById('main-img').src=this.src">
                     </div>
                 </div>
-                <div class="col-md-6 p-4 bg-white">
+                <div class="col-md-6 p-4">
                     <button type="button" class="btn-close float-end" data-bs-dismiss="modal"></button>
-                    <h4 class="fw-bold text-danger mt-2">${p.Name}</h4>
-                    <p class="text-muted small">Mã hoa: ${p.ID}</p>
-                    <h3 class="fw-bold mb-4" style="color: var(--primary-floral)">${p.Price} đ</h3>
+                    <h3 class="fw-bold text-danger mt-2">${p.Name}</h3>
+                    <p class="text-muted small">Mẫu: ${p.ID}</p>
+                    <h2 class="fw-bold mb-4" style="color: var(--primary-floral)">${p.Price} đ</h2>
                     <div class="mb-4">
-                        <h6 class="fw-bold text-uppercase small border-bottom pb-2">Đặc điểm mẫu hoa:</h6>
+                        <h6 class="fw-bold text-uppercase small border-bottom pb-2">Chi tiết mẫu:</h6>
                         <div class="mt-2">${formatSpecs(p.Specs)}</div>
                     </div>
                     <button class="btn btn-floral w-100 py-3 shadow" onclick="addToCart('${p.ID}')">MUA NGAY</button>
@@ -362,27 +331,27 @@
         const p = allProducts.find(x => x.ID === id);
         cart.push(p);
         document.getElementById('cart-badge').innerText = cart.length;
-        alert("Đã thêm mẫu vào danh sách đặt hàng.");
+        alert("Đã chọn mẫu '" + p.Name + "'. Bấm vào giỏ hàng để in báo giá PDF.");
     }
 
     function openCart() {
-        if(cart.length === 0) return alert("Giỏ hàng trống.");
-        if(confirm("Xuất danh sách mẫu hoa ra file PDF báo giá?")) exportPDF();
+        if(cart.length === 0) return alert("Bạn chưa chọn mẫu hoa nào.");
+        if(confirm("Tải file báo giá PDF các mẫu hoa đã chọn?")) exportPDF();
     }
 
     function exportPDF() {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
-        doc.text("DANH SACH DAT HOA - SHOP HONG NHUNG", 105, 20, { align: 'center' });
+        doc.text("DON HANG HOA TUOI - SHOP HONG NHUNG", 105, 20, { align: 'center' });
         doc.autoTable({
-            head: [['STT', 'Ma SP', 'Ten San Pham', 'Gia']],
+            head: [['STT', 'Ma Mau', 'Ten Mau', 'Gia']],
             body: cart.map((p, i) => [i + 1, p.ID, p.Name, p.Price]),
             startY: 35
         });
         const finalY = doc.lastAutoTable.finalY + 10;
-        doc.text("Thanh toan VietinBank: 090527452", 14, finalY);
-        doc.text("Hotline: 0905274529", 14, finalY + 7);
-        doc.save("DonHang_HoaHongNhung.pdf");
+        doc.text("VietinBank: 090527452 - NGUYEN THI THU", 14, finalY);
+        doc.text("Dia chi: Chon Dieu Tri, Tuy Phuoc, Gia Lai", 14, finalY + 7);
+        doc.save("DonHang_ShopHoaHongNhung.pdf");
     }
 
     window.onload = loadData;
