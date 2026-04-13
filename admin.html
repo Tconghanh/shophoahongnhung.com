@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KGP Dashboard | Hệ Thống Quản Trị</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        :root { --wp-sidebar: #1d2327; --wp-sidebar-hover: #2271b1; --wp-bg: #f0f0f1; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--wp-bg); margin: 0; display: flex; height: 100vh; overflow: hidden; }
+        
+        /* Sidebar & Layout */
+        .wp-sidebar { width: 160px; background: var(--wp-sidebar); color: #f0f0f1; flex-shrink: 0; display: flex; flex-direction: column; z-index: 100; }
+        .wp-brand { padding: 15px; background: #000; display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; }
+        .nav-item { padding: 12px 15px; display: flex; align-items: center; gap: 10px; font-size: 14px; color: #f0f0f1; transition: all 0.1s; cursor: pointer; border-left: 4px solid transparent; }
+        .nav-item:hover { background: rgba(255,255,255,0.1); color: #72aee6; }
+        .nav-item.active { background: var(--wp-sidebar-hover); color: white; border-left-color: white; }
+        .wp-main { flex-grow: 1; display: flex; flex-direction: column; overflow: hidden; }
+        .wp-toolbar { height: 32px; background: #1d2327; color: #c3c4c7; display: flex; align-items: center; padding: 0 20px; font-size: 13px; justify-content: space-between; }
+        .wp-content { padding: 20px; flex-grow: 1; overflow-y: auto; }
+        .workspace-card { background: white; border: 1px solid #c3c4c7; box-shadow: 0 1px 1px rgba(0,0,0,.04); min-height: calc(100vh - 120px); position: relative; }
+        iframe { width: 100%; height: 100%; min-height: inherit; border: none; }
+        
+        /* Form & Buttons */
+        .wp-button { background: #2271b1; border: 1px solid #2271b1; color: #fff; padding: 6px 12px; border-radius: 3px; font-size: 13px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+        .wp-button:hover { background: #135e96; }
+        .wp-button-secondary { background: #f6f7f7; border-color: #dcdcde; color: #2271b1; }
+        .wp-button-secondary:hover { background: #f0f0f1; border-color: #c3c4c7; }
+        .wp-input { border: 1px solid #8c8f94; padding: 5px 10px; border-radius: 4px; font-size: 13px; }
+        
+        /* Table */
+        .wp-table { width: 100%; border-collapse: collapse; background: white; font-size: 13px; }
+        .wp-table th { text-align: left; padding: 12px; border-bottom: 2px solid #f0f0f1; color: #2c3338; background: #f9f9f9; }
+        .wp-table td { padding: 12px; border-bottom: 1px solid #f0f0f1; color: #50575e; }
+        
+        /* Modal */
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: 9999; align-items: center; justify-content: center; }
+        .modal-overlay.active { display: flex; }
+    </style>
+</head>
+<body>
+
+    <aside class="wp-sidebar">
+        <div class="wp-brand"><i class="fa-solid fa-gauge-high"></i><span>KGP ADMIN</span></div>
+        <nav class="mt-4">
+            <div onclick="switchTab(this, '0')" class="nav-item active"><i class="fa-solid fa-house"></i> Bảng tin</div>
+            <div onclick="switchTab(this, '809858153')" class="nav-item"><i class="fa-solid fa-diagram-project"></i> Dự án</div>
+            <div onclick="switchTab(this, '895747298')" class="nav-item"><i class="fa-solid fa-box"></i> Sản phẩm</div>
+            <div onclick="switchTab(this, 'hosting')" class="nav-item"><i class="fa-solid fa-cloud-arrow-up"></i> Dữ liệu & Hosting</div>
+        </nav>
+    </aside>
+
+    <main class="wp-main">
+        <div class="wp-toolbar">
+            <div class="flex gap-4"><span><i class="fa-solid fa-earth-americas mr-1"></i> Khang Gia Phúc</span></div>
+            <div>Chào, Quản trị viên <i class="fa-solid fa-user-circle ml-1"></i></div>
+        </div>
+
+        <div class="wp-content">
+            <h2 id="page-title" class="text-2xl font-normal text-[#1d2327] mb-4">Bảng điều khiển</h2>
+            
+            <div class="workspace-card">
+                <iframe id="main-frame" src="https://docs.google.com/spreadsheets/d/1axcjWG7Y82duNRmjdLxIqeVdH0aSwTQoYOnP9aeHPJw/edit?rm=minimal&gid=0"></iframe>
+                
+                <div id="hosting-ui" class="hidden h-full flex flex-col">
+                    <div class="p-6 border-bottom bg-[#fdfdfd]">
+                        <h3 class="text-sm font-bold text-gray-700 uppercase mb-4"><i class="fa-solid fa-plus-circle text-blue-600 mr-2"></i> Tải tệp mới lên /data</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                            <div>
+                                <label class="block text-[11px] font-bold text-gray-500 mb-1">GITHUB TOKEN</label>
+                                <input type="password" id="gh-token" class="wp-input w-full" placeholder="Token...">
+                            </div>
+                            <div>
+                                <label class="block text-[11px] font-bold text-gray-500 mb-1">CHỌN TỆP</label>
+                                <input type="file" id="gh-file" onchange="updatePath(this, 'gh-path')" class="text-xs w-full">
+                                <input type="hidden" id="gh-path" value="data/">
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="uploadToGithub('gh-token', 'gh-file', 'gh-path', 'upload-status')" id="upload-btn" class="wp-button flex-grow justify-center">TẢI LÊN</button>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 flex gap-3 border-t pt-4">
+                            <button onclick="toggleModal(true)" class="wp-button wp-button-secondary text-xs">
+                                <i class="fa-solid fa-expand"></i> Mở rộng cửa sổ bung
+                            </button>
+                            <span class="text-[11px] text-gray-400 self-center italic">Link gọi từ ngoài: domain.com/#quick-upload</span>
+                        </div>
+
+                        <div id="upload-status" class="hidden mt-4 p-3 border-l-4 text-xs"></div>
+                    </div>
+
+                    <div class="p-6 flex-grow overflow-y-auto">
+                        <table class="wp-table">
+                            <thead><tr><th>Tên tệp</th><th>Size</th><th>Loại</th><th class="text-right">Hành động</th></tr></thead>
+                            <tbody id="file-list"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="quick-modal" class="modal-overlay">
+        <div class="bg-white w-full max-w-lg rounded shadow-2xl border border-gray-400 overflow-hidden mx-4">
+            <div class="bg-[#1d2327] text-white px-4 py-2 flex justify-between items-center">
+                <span class="text-xs font-bold uppercase">Tải lên nhanh</span>
+                <button onclick="toggleModal(false)" class="text-white hover:text-red-400"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-6 space-y-4">
+                <div>
+                    <label class="block text-[11px] font-bold mb-1">GITHUB TOKEN</label>
+                    <input type="password" id="modal-token" class="wp-input w-full">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-[11px] font-bold mb-1">CHỌN FILE</label>
+                        <input type="file" id="modal-file" onchange="updatePath(this, 'modal-path')" class="text-xs">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-bold mb-1">ĐƯỜNG DẪN</label>
+                        <input type="text" id="modal-path" value="data/" class="wp-input w-full bg-gray-50 font-mono text-xs" readonly>
+                    </div>
+                </div>
+                <div id="modal-status" class="hidden p-3 border-l-4 text-xs"></div>
+                <button onclick="uploadToGithub('modal-token', 'modal-file', 'modal-path', 'modal-status')" class="wp-button w-full justify-center py-3">BẮT ĐẦU TẢI LÊN</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const repo = "Tconghanh/khanggiaphuc.com";
+
+        function switchTab(el, target) {
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+            el.classList.add('active');
+            document.getElementById('page-title').innerText = el.innerText.trim();
+            if(target === 'hosting') {
+                document.getElementById('main-frame').classList.add('hidden');
+                document.getElementById('hosting-ui').classList.remove('hidden');
+                fetchFiles();
+            } else {
+                document.getElementById('main-frame').classList.remove('hidden');
+                document.getElementById('hosting-ui').classList.add('hidden');
+                document.getElementById('main-frame').src = `https://docs.google.com/spreadsheets/d/1axcjWG7Y82duNRmjdLxIqeVdH0aSwTQoYOnP9aeHPJw/edit?rm=minimal&gid=${target}`;
+            }
+        }
+
+        function toggleModal(show) {
+            document.getElementById('quick-modal').classList.toggle('active', show);
+        }
+
+        // KIỂM TRA LINK KHI TRANG LOAD
+        window.addEventListener('load', () => {
+            if(window.location.hash === '#quick-upload') {
+                toggleModal(true);
+            }
+        });
+
+        function updatePath(input, targetId) {
+            if (input.files && input.files[0]) 
+                document.getElementById(targetId).value = "data/" + input.files[0].name;
+        }
+
+        async function fetchFiles() {
+            const list = document.getElementById('file-list');
+            list.innerHTML = '<tr><td colspan="4" class="text-center py-4">Đang tải...</td></tr>';
+            try {
+                const res = await fetch(`https://api.github.com/repos/${repo}/contents/data`);
+                const files = await res.json();
+                list.innerHTML = files.map(f => `
+                    <tr>
+                        <td class="font-medium">${f.name}</td>
+                        <td>${(f.size/1024).toFixed(1)} KB</td>
+                        <td>${f.name.split('.').pop().toUpperCase()}</td>
+                        <td class="text-right">
+                            <a href="${f.download_url}" target="_blank" class="text-blue-500 mr-2">XEM</a>
+                            <button onclick="deleteFile('${f.path}', '${f.sha}')" class="text-red-500">XÓA</button>
+                        </td>
+                    </tr>
+                `).join('');
+            } catch (e) { list.innerHTML = 'Lỗi tải dữ liệu.'; }
+        }
+
+        async function uploadToGithub(tokenId, fileId, pathId, statusId) {
+            const token = document.getElementById(tokenId).value;
+            const fileInput = document.getElementById(fileId);
+            const path = document.getElementById(pathId).value;
+            const status = document.getElementById(statusId);
+
+            if(!token || !fileInput.files[0]) return alert("Vui lòng nhập Token và chọn file!");
+
+            status.classList.remove('hidden');
+            status.className = "p-3 border-l-4 border-blue-500 bg-blue-50 text-xs";
+            status.innerText = "Đang tải lên...";
+
+            const reader = new FileReader();
+            reader.onload = async function() {
+                const content = reader.result.split(',')[1];
+                try {
+                    let sha = "";
+                    const check = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+                        headers: { 'Authorization': `token ${token}` }
+                    });
+                    if (check.ok) sha = (await check.json()).sha;
+
+                    const res = await fetch(`https://api.github.com/repos/${repo}/contents/${path}`, {
+                        method: 'PUT',
+                        headers: { 'Authorization': `token ${token}`, 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ message: `Upload: ${path}`, content, sha })
+                    });
+
+                    if(res.ok) {
+                        status.className = "p-3 border-l-4 border-green-500 bg-green-50 text-green-700 text-xs";
+                        status.innerHTML = "Thành công!";
+                        fetchFiles();
+                    } else throw new Error("Lỗi GitHub");
+                } catch (e) {
+                    status.className = "p-3 border-l-4 border-red-500 bg-red-50 text-red-700 text-xs";
+                    status.innerText = e.message;
+                }
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+        }
+    </script>
+</body>
+</html>
