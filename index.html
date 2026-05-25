@@ -333,7 +333,7 @@
                     <div class="product-card" onclick="showDetail('${p.ID}')">
                         <img src="data/${p.ID}.jpg" class="product-img" loading="lazy" onerror="this.src='https://via.placeholder.com/300x400?text=Hồng+Nhung'">
                         <h3 class="h6 fw-bold text-truncate mb-1">${p.Name}</h3>
-                        <p class="price mb-2">${p.Price} đ</p>
+                        <p class="price mb-2">${p.Price}</p>
                         <a href="https://zalo.me/0905274529?text=Chào shop, tôi muốn đặt mẫu: ${p.Name} (Mã ${p.ID})" class="btn btn-sm btn-primary rounded-pill w-100" onclick="event.stopPropagation()">
                             <i class="fab fa-whatsapp me-1"></i> Liên hệ Zalo
                         </a>
@@ -362,7 +362,7 @@
                     <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
                     <h2 class="h4 fw-bold text-danger mt-2">${p.Name}</h2>
                     <p class="text-muted small">Mẫu sản phẩm: ${p.ID}</p>
-                    <p class="h3 fw-bold mb-4" style="color: #d81b60">${p.Price} đ</p>
+                    <p class="h3 fw-bold mb-4" style="color: #d81b60">${p.Price}</p>
                     <div class="mb-4">
                         <h6 class="fw-bold text-uppercase small border-bottom pb-2">Đặc điểm nổi bật:</h6>
                         <div class="mt-2">${specsHtml}</div>
