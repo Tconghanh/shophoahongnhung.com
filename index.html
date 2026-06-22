@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Hoa Hồng Nhung - Hoa Tươi & Giỏ Trái Cây | shophoahongnhung.com</title>
-    <meta name="description" content="Shop Hoa Hồng Nhung tại Tuy Phước, Gia Lai. Chuyên hoa cưới, khai trương, giỏ trái cây. Giao hoa tận nơi uy tín.">
+    <title>Shop Hoa Hồng Nhung - Hoa Tươi Tuy Phước | shophoahongnhung.com</title>
+    <meta name="description" content="Shop Hoa Hồng Nhung tại Tuy Phước, Gia Lai. Chuyên hoa cưới, khai trương, giỏ trái cây cao cấp. Giao hoa tận nơi uy tín.">
     <link rel="icon" type="image/x-icon" href="data/favicon.ico">
 
     <!-- SEO Schema -->
@@ -21,11 +21,12 @@
         "addressRegion": "Gia Lai",
         "addressCountry": "VN"
       },
-      "telephone": "+84905274529"
+      "telephone": "+84905274529",
+      "url": "https://www.shophoahongnhung.com"
     }
     </script>
 
-    <!-- CSS -->
+    <!-- CSS Libraries -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -33,7 +34,7 @@
     
     <style>
         :root { --primary: #d81b60; --secondary: #fce4ec; --text: #2d3436; }
-        body { font-family: 'Inter', sans-serif; color: var(--text); overflow-x: hidden; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--text); overflow-x: hidden; scroll-behavior: smooth; background: #fff; }
         h1, h2, h3, .nav-link, .floral-font { font-family: 'Playfair Display', serif; }
 
         #sidebar {
@@ -42,12 +43,11 @@
         }
         #sidebar .logo-area { padding: 30px; text-align: center; border-bottom: 1px solid #f8f9fa; }
         #sidebar .logo-area img { max-width: 100%; border-radius: 12px; }
-        #sidebar .nav-link { color: #444; padding: 12px 25px; font-weight: 600; border-bottom: 1px solid #fafafa; cursor: pointer; }
+        #sidebar .nav-link { color: #444; padding: 12px 25px; font-weight: 600; border-bottom: 1px solid #fafafa; cursor: pointer; transition: 0.2s; }
         #sidebar .nav-link:hover, #sidebar .nav-link.active { background: var(--secondary); color: var(--primary); padding-left: 35px; }
         
         #main-content { margin-left: 280px; transition: 0.3s; }
 
-        /* Sliders */
         .swiper-hero { height: 500px; width: 100%; }
         .swiper-hero img { width: 100%; height: 100%; object-fit: cover; }
 
@@ -55,21 +55,19 @@
         .project-item img { height: 260px; width: 100%; object-fit: cover; }
         .project-item p { padding: 15px; font-weight: 700; text-align: center; color: var(--primary); margin:0; }
 
-        /* Product Cards */
         .product-card { 
             background: #fff; border: 1px solid #eee; border-radius: 18px; 
             padding: 15px; transition: 0.3s; height: 100%; text-align: center; cursor: pointer;
         }
         .product-card:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
-        .product-img { width: 100%; height: 260px; object-fit: cover; border-radius: 12px; margin-bottom: 12px; }
+        .product-img { width: 100%; height: 280px; object-fit: cover; border-radius: 12px; margin-bottom: 12px; }
         .price { color: var(--primary); font-weight: 700; font-size: 1.15rem; }
         
-        .spec-item { display: flex; align-items: start; margin-bottom: 6px; font-size: 0.85rem; text-align: left; }
-        .spec-item i { color: var(--primary); margin-right: 8px; margin-top: 4px; }
+        .spec-item { display: flex; align-items: start; margin-bottom: 8px; font-size: 0.9rem; text-align: left; line-height: 1.4; }
+        .spec-item i { color: var(--primary); margin-right: 10px; margin-top: 4px; font-size: 0.8rem; }
 
-        /* Album Thumbnails */
         .thumb-img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: 0.2s; }
-        .thumb-img:hover, .thumb-img.active { border-color: var(--primary); transform: scale(1.1); }
+        .thumb-img.active { border-color: var(--primary); transform: scale(1.1); }
 
         .zalo-float {
             position: fixed; bottom: 30px; right: 30px; z-index: 1001;
@@ -77,6 +75,8 @@
             border-radius: 50px; display: flex; align-items: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2); text-decoration: none; font-weight: 600;
         }
+
+        .map-container { width: 100%; height: 250px; border-radius: 15px; overflow: hidden; border: 1px solid #eee; }
 
         @media (max-width: 992px) {
             #sidebar { left: -280px; }
@@ -87,16 +87,16 @@
 </head>
 <body>
 
-<!-- Header Mobile -->
+<!-- Mobile Header -->
 <header class="d-lg-none bg-white p-3 shadow-sm d-flex justify-content-between align-items-center sticky-top">
-    <img src="data/logo.gif" height="35">
+    <img src="data/logo.gif" height="35" alt="Logo">
     <button class="btn btn-outline-danger btn-sm" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
 </header>
 
 <!-- Sidebar -->
 <nav id="sidebar">
     <div class="logo-area">
-        <img src="data/logo.gif" alt="Logo" width="180">
+        <img src="data/logo.gif" alt="Shop Hoa Hồng Nhung" width="180">
         <div class="mt-3">
             <h1 class="h5 fw-bold mb-0" style="color: var(--primary);">HỒNG NHUNG</h1>
             <small class="text-muted text-uppercase">Shop Hoa Tươi</small>
@@ -113,23 +113,23 @@
 </nav>
 
 <main id="main-content">
-    <!-- Hero Slider -->
+    <!-- Slider Banner -->
     <section id="home" class="swiper swiper-hero">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="data/SL1.jpg" alt="Slide 1"></div>
-            <div class="swiper-slide"><img src="data/SL2.jpg" alt="Slide 2"></div>
-            <div class="swiper-slide"><img src="data/SL3.jpg" alt="Slide 3"></div>
-            <div class="swiper-slide"><img src="data/SL4.jpg" alt="Slide 4"></div>
-            <div class="swiper-slide"><img src="data/SL5.jpg" alt="Slide 5"></div>
+            <div class="swiper-slide"><img src="data/SL1.jpg" alt="Mẫu hoa 1"></div>
+            <div class="swiper-slide"><img src="data/SL2.jpg" alt="Mẫu hoa 2"></div>
+            <div class="swiper-slide"><img src="data/SL3.jpg" alt="Mẫu hoa 3"></div>
+            <div class="swiper-slide"><img src="data/SL4.jpg" alt="Mẫu hoa 4"></div>
+            <div class="swiper-slide"><img src="data/SL5.jpg" alt="Mẫu hoa 5"></div>
         </div>
         <div class="swiper-pagination"></div>
     </section>
 
-    <!-- Intro -->
+    <!-- Giới thiệu -->
     <section id="intro" class="py-5 container">
         <div class="row align-items-center">
             <div class="col-lg-5 text-center mb-4">
-                <img src="data/DKKD.jpg" class="img-fluid rounded shadow-sm border" style="max-width: 350px;" loading="lazy" alt="Giấy phép kinh doanh">
+                <img src="data/DKKD.jpg" class="img-fluid rounded shadow-sm border" style="max-width: 320px;" loading="lazy" alt="Giấy phép kinh doanh">
             </div>
             <div class="col-lg-7">
                 <h2 class="fw-bold mb-3" style="color: var(--primary);">SHOP HOA HỒNG NHUNG</h2>
@@ -142,8 +142,8 @@
         </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="py-5 bg-light">
+    <!-- Mẫu hoa thực tế -->
+    <section id="projects" class="py-5 bg-light border-top border-bottom">
         <div class="container mb-4 text-center"><h3 class="fw-bold">MẪU HOA THỰC TẾ ĐÃ GIAO</h3></div>
         <div class="swiper swiper-projects">
             <div class="swiper-wrapper">
@@ -156,10 +156,10 @@
         </div>
     </section>
 
-    <!-- Products -->
+    <!-- Danh sách sản phẩm -->
     <section id="products" class="py-5 container">
         <div class="text-center mb-5">
-            <h2 class="fw-bold display-6">DANH MỤC SẢN PHẨM</h2>
+            <h2 class="fw-bold display-6">SẢN PHẨM CỦA SHOP</h2>
             <div class="d-flex justify-content-center flex-wrap gap-2 mt-4" id="cat-nav">
                 <button class="btn btn-outline-danger active rounded-pill px-4" onclick="filterBy('bán chạy', this)">Bán chạy</button>
             </div>
@@ -169,16 +169,17 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Chân trang -->
     <footer id="contact" class="bg-white border-top py-5">
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-4 text-center">
-                    <img src="data/logo.gif" height="70" class="mb-3">
+                    <img src="data/logo.gif" height="70" class="mb-3" alt="Logo">
                     <h5 class="fw-bold" style="color: var(--primary);">SHOP HOA HỒNG NHUNG</h5>
+                    <p class="small text-muted mb-0">www.shophoahongnhung.com</p>
                 </div>
                 <div class="col-md-4">
-                    <h6 class="fw-bold mb-3 text-uppercase">Thanh toán</h6>
+                    <h6 class="fw-bold mb-3 text-uppercase">Liên hệ & Thanh toán</h6>
                     <ul class="list-unstyled small">
                         <li class="mb-2">Zalo: <strong>0905.274.529</strong></li>
                         <li class="mb-2">Vietinbank: <strong>108886635288</strong></li>
@@ -186,24 +187,30 @@
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15442.2354784784!2d109.1678!3d13.8055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f1573c73f3661%3A0x6b1f28b7e2834b6e!2zQ2jhu6MgRGnDqnUgVHLDrA!5e0!3m2!1svi!2s!4v1712470000000!5m2!1svi!2s" width="100%" height="200" style="border:0; border-radius:12px;" allowfullscreen="" loading="lazy"></iframe>
+                    <h6 class="fw-bold mb-3 text-uppercase">Vị trí trên bản đồ</h6>
+                    <div class="map-container shadow-sm">
+                        <!-- Bản đồ chính xác vị trí Shop Hoa Hồng Nhung -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3871.213264627447!2d109.1654817!3d13.8051785!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x316f156d9536098b%3A0xc3c5112e737c35e6!2zU2hvcCBIb2EgSOG7k25nIE5odW5n!5e0!3m2!1svi!2s!4v1718950000000!5m2!1svi!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
 </main>
 
+<!-- Floating Zalo Button -->
 <a href="https://zalo.me/0905274529" class="zalo-float" target="_blank">
     <i class="fas fa-comment-dots me-2"></i> Nhắn Zalo đặt hoa
 </a>
 
-<!-- Modal Detail (Album) -->
-<div class="modal fade" id="detailModal" tabindex="-1">
+<!-- Modal chi tiết Album -->
+<div class="modal fade" id="detailModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;" id="detail-body"></div>
     </div>
 </div>
 
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
@@ -213,7 +220,7 @@
     let allProducts = [];
     let currentCat = 'bán chạy';
 
-    // Helper: Drive Link to Direct Link
+    // Chuyển link Google Drive sang link hiển thị trực tiếp
     function getDirectImg(url) {
         if (!url || !url.includes('drive.google.com')) return url.trim();
         const id = url.split('/d/')[1]?.split('/')[0] || url.split('id=')[1];
@@ -221,7 +228,7 @@
     }
 
     new Swiper(".swiper-hero", { loop: true, autoplay: { delay: 4000 }, pagination: { el: ".swiper-pagination", clickable: true } });
-    new Swiper(".swiper-projects", { slidesPerView: 1, spaceBetween: 15, loop: true, speed: 5000, autoplay: { delay: 0 } });
+    new Swiper(".swiper-projects", { slidesPerView: 1, spaceBetween: 15, loop: true, speed: 5000, autoplay: { delay: 0 }, breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 4 } } });
 
     function toggleSidebar() { document.getElementById('sidebar').classList.toggle('active'); }
 
@@ -281,7 +288,7 @@
                         <img src="${p.MainImg}" class="product-img" loading="lazy">
                         <h3 class="h6 fw-bold text-truncate mb-1">${p.Name}</h3>
                         <p class="price mb-2 text-danger">${p.Price} đ</p>
-                        <a href="https://zalo.me/0905274529?text=Tôi muốn đặt mẫu: ${p.Name}" class="btn btn-sm btn-primary rounded-pill w-100" onclick="event.stopPropagation()">Đặt Zalo</a>
+                        <a href="https://zalo.me/0905274529?text=Tôi muốn đặt mẫu: ${p.Name}" class="btn btn-sm btn-primary rounded-pill w-100" onclick="event.stopPropagation()">Đặt qua Zalo</a>
                     </div>
                 </div>`;
         });
@@ -291,13 +298,13 @@
         const p = allProducts.find(x => x.Name === name);
         const modalBody = document.getElementById('detail-body');
         
-        // Render Thumbnails Album
         let thumbsHtml = p.Images.map((img, idx) => `
             <img src="${img}" class="thumb-img ${idx === 0 ? 'active' : ''}" 
                  onclick="changeMainImg(this, '${img}')">
         `).join('');
 
-        let specsHtml = p.Specs ? p.Specs.split(';').map(s => `<div class="spec-item"><i class="fas fa-check-circle"></i><span>${s.trim()}</span></div>`).join('') : 'Hoa tươi thiết kế.';
+        // Tách Mô tả bằng dấu PHẨY (,) để xuống dòng
+        let specsHtml = p.Specs ? p.Specs.split(',').map(s => `<div class="spec-item"><i class="fas fa-check-circle"></i><span>${s.trim()}</span></div>`).join('') : '<div class="spec-item"><i class="fas fa-check-circle"></i><span>Hoa tươi mẫu mới nhập trong ngày.</span></div>';
 
         modalBody.innerHTML = `
             <div class="row g-0 bg-white">
@@ -312,10 +319,10 @@
                     <h2 class="h4 fw-bold text-danger mt-2">${p.Name}</h2>
                     <p class="h3 fw-bold mb-4" style="color: #d81b60">${p.Price} đ</p>
                     <div class="mb-4">
-                        <h6 class="fw-bold text-uppercase small border-bottom pb-2">Đặc điểm mẫu hoa:</h6>
-                        <div class="mt-2">${specsHtml}</div>
+                        <h6 class="fw-bold text-uppercase small border-bottom pb-2 mb-3">Mô tả sản phẩm:</h6>
+                        <div>${specsHtml}</div>
                     </div>
-                    <a href="https://zalo.me/0905274529?text=Tôi muốn đặt mẫu: ${p.Name}" class="btn btn-primary w-100 py-3 rounded-pill fw-bold">ĐẶT QUA ZALO</a>
+                    <a href="https://zalo.me/0905274529?text=Tôi muốn đặt mẫu: ${p.Name}" class="btn btn-primary w-100 py-3 rounded-pill fw-bold shadow">ĐẶT QUA ZALO NGAY</a>
                 </div>
             </div>`;
         new bootstrap.Modal('#detailModal').show();
